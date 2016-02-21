@@ -1,19 +1,18 @@
-CREATE TABLE user (
-  id int IDENTITY NOT NULL PRIMARY KEY,
+CREATE TABLE "user" (
+  id int NOT NULL primary key,
   name varchar(32) DEFAULT NULL,
   email varchar(32) NOT NULL,
   password varchar(32) DEFAULT NULL
 );
 
-ALTER TABLE user ADD CONSTRAINT unique_email UNIQUE (email);
 
-CREATE TABLE todo (
-  id int IDENTITY NOT NULL PRIMARY KEY,
-  userId int NOT NULL,
+CREATE TABLE "todo" (
+  id int NOT NULL primary key,
+  userId int NOT NULL references "user"(id),
   title varchar(512) DEFAULT NULL,
   done boolean DEFAULT FALSE NOT NULL,
-  priority tinyint NOT NULL,
+  priority int NOT NULL,
   dueDate date DEFAULT NULL
 );
 
-alter table todo add constraint user_fk foreign key (userId) references user(id);
+GRANT ALL PRIVILEGES ON DATABASE docker TO docker;

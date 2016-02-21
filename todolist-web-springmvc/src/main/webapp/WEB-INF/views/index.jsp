@@ -22,13 +22,13 @@
 
                     <c:if test="${sessionScope['scopedTarget.sessionData'].user == null}">
                     <p>
-                        <a class="btn btn-primary btn-large" href="/login"> Sign in </a> or <a class="btn btn-primary btn-large" href="/register"> Sign up </a>
+                        <a class="btn btn-primary btn-large" href="${pageContext.servletContext.contextPath}/login"> Sign in </a> or <a class="btn btn-primary btn-large" href="${pageContext.servletContext.contextPath}/register"> Sign up </a>
                     </p>
                     </c:if>
 
                     <c:if test="${sessionScope['scopedTarget.sessionData'].user != null}">
                         <p>
-                            <a class="btn btn-primary btn-large" href="/user/todos"> Go to my Home page </a>
+                            <a class="btn btn-primary btn-large" href="${pageContext.servletContext.contextPath}/user/todos"> Go to my Home page </a>
                         </p>
                     </c:if>
 
