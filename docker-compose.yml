@@ -9,6 +9,6 @@ services:
   web:
     image: todo
     ports:
-      - 80:8080
+      - 8080
     links: 
       - db:postgresql
