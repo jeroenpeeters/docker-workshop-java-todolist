@@ -33,6 +33,7 @@ import java.io.Serializable;
  * @author Mahmoud Ben Hassine (mahmoud@benhassine.fr)
  */
 @Entity
+@Table(name="todoUser")
 @NamedQueries({
         @NamedQuery(name = "findUserByEmail", query = "SELECT u FROM User u where u.email = :p_email"),
         @NamedQuery(name = "findUserByEmailAndPassword", query = "SELECT u FROM User u where u.email = :p_email and u.password = :p_password")
