@@ -55,24 +55,25 @@
             <artifactId>hsqldb</artifactId>
             <version>2.3.2</version>
         </dependency>-->
-<dependency>
-	<groupId>org.postgresql</groupId>
-	<artifactId>postgresql</artifactId>
-	<version>9.4-1200-jdbc41</version>
-</dependency>
+        <dependency>
+        	<groupId>org.postgresql</groupId>
+        	<artifactId>postgresql</artifactId>
+        	<version>9.4-1200-jdbc41</version>
+        </dependency>
 
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>${hibernate.version}</version>
-
+            <!-- <scope>provided</scope> -->
         </dependency>
 
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
             <version>${hibernate.version}</version>
+            <!-- <scope>provided</scope> -->
 
             <exclusions>
                 <exclusion>
@@ -85,13 +86,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+<!-- 
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.0-api</artifactId>
-
             <version>1.0.1.Final</version>
-        </dependency>
+        </dependency> -->
 
         <dependency>
             <groupId>commons-collections</groupId>
