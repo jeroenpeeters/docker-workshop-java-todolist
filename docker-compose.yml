@@ -1,0 +1,14 @@
+version: '2'
+services:
+  db:
+    image: postgres
+    container_name: todo_db
+    environment:
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=todo
+  web:
+    image: todo
+    ports:
+      - 80:8080
+    links: 
+      - db:postgresql
