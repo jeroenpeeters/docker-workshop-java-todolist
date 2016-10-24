@@ -1,0 +1,43 @@
+- go to:
+    url: /
+
+- set:
+    signUpButton: ''
+
+- set:
+    nameInput: 'testUser'
+    emailInput: 'user-{{random}}@non-existing.nl'
+    passwordInput: '12345678'
+    confirmPasswordInput: '12345678'
+
+- set:
+    submitButton: ''
+
+- set:
+    createTodoLink: ''
+    titleInput: 'Setup Gitlab'
+    submitButton: ''
+
+- set:
+    createTodoLink: ''
+    titleInput: 'Setup Jenkins'
+    submitButton: ''
+
+- set:
+    createTodoLink: ''
+    titleInput: 'Push code to Gitlab'
+    submitButton: ''
+
+- set:
+    createTodoLink: ''
+    titleInput: 'Create build jobs'
+    submitButton: ''
+
+- check exists:
+    todoItem('Setup Gitlab'): true
+    todoItem('Setup Jenkins'): true
+    todoItem('Push code to Gitlab'): true
+    todoItem('Create build jobs'): true
+
+# - sleep:
+#     seconds: 5

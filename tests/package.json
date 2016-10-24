@@ -1,0 +1,18 @@
+{
+  "name": "test",
+  "version": "2.2.0",
+  "description": "",
+  "main": "index.coffee",
+  "author": "Gantcho Kojuharov <gantcho@greyarch.net> (http://greyarch.net)",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^3.7.0",
+    "testx": "^1.11.0",
+    "testx-jasmine-reporters": "^1.1.1",
+    "testx-yaml-parser": "^0.1.2"
+  },
+  "scripts": {
+    "test": "protractor conf.coffee",
+    "test-docker": "docker run --rm -it -v `pwd`:/work --net=host testx/protractor conf.coffee"
+  }
+}
