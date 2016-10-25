@@ -2,7 +2,6 @@ version: '2'
 services:
   db:
     image: postgres
-    container_name: todo_db
     environment:
       - POSTGRES_PASSWORD=secret
       - POSTGRES_DB=todo
