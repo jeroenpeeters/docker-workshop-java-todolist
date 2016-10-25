@@ -1,20 +1,33 @@
 node('docker'){
-    stage('maven checkout')
-    checkout scm
-    
-    stage('maven build')
-    writeFile file: 'settings.xml', text: "<settings><localRepository>${pwd()}/.m2repo</localRepository></settings>"
-    docker.image('maven:3.3.3-jdk-8').inside {
-        sh 'mvn -s settings.xml clean package'
+    stage('maven checkout'){
+      checkout scm
     }
-    sh 'ls -al todolist-web-servlet-jsp/target/'
-    
-    stage('docker build')
-    image = docker.build('todo')
-    
-    stage('deploy')
-    sh 'docker-compose up -d'
-    sh 'docker-compose port web 8080 > portmapping'
-    def port = readFile 'portmapping'
-    echo "port is ${port}"
+
+    stage('maven build'){
+      writeFile file: 'settings.xml', text: "<settings><localRepository>${pwd()}/.m2repo</localRepository></settings>"
+      // TODO: implement
+    }
+
+    stage('docker build'){
+      // TODO: implement
+    }
+
+    stage('deploy'){
+      // TODO: implement
+    }
+
+    stage('frontend tests'){
+      dir('tests'){
+        sh 'mkdir -p .yarn .yarn-config .yarn-cache'
+        def yarnMapping = '-v $PWD:.yarn/.yarn -v $PWD:.yarn-config/.yarn-config -v $PWD:.yarn-cache/.yarn-cache'
+        docker.image('yarn').runWith(yarnMapping){
+          sh 'yarn install'
+        }
+        // TODO: implement running of tests
+      }
+    }
+
+    stage('teardown'){
+      // TODO: implement
+    }
 }
