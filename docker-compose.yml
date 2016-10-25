@@ -9,5 +9,13 @@ services:
     image: todo
     ports:
       - 8080
-    links: 
+    links:
       - db:postgresql
+
+  # db:
+  #   image: mysql:5
+  #   environment:
+  #     - MYSQL_ROOT_PASSWORD=rootpwd
+  #     - MYSQL_DATABASE=todo
+  #     - MYSQL_USER=mysql
+  #     - MYSQL_PASSWORD=secret
