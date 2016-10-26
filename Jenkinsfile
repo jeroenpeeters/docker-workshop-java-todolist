@@ -17,10 +17,11 @@ node('docker'){
     }
 
     stage('frontend tests'){
+      def urlMap = readFile('./urlMap')
       dir('tests'){
-        sh 'mkdir -p .yarn .yarn-config .yarn-cache'
-        def yarnMapping = '-v $PWD:.yarn/.yarn -v $PWD:.yarn-config/.yarn-config -v $PWD:.yarn-cache/.yarn-cache'
-        docker.image('yarn').runWith(yarnMapping){
+        sh 'mkdir -p .yarn-cache'
+        def yarnMapping = '-u root:root -v $PWD/.yarn-cache:/.yarn-cache'
+        docker.image('kkarczmarczyk/node-yarn:6.7-slim').inside(yarnMapping){
           sh 'yarn install'
         }
         // TODO: implement running of tests
