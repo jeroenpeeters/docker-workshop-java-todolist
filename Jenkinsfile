@@ -1,5 +1,5 @@
 node('docker'){
-    stage('maven checkout'){
+    stage('checkout'){
       checkout scm
     }
 
